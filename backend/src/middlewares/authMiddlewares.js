@@ -3,10 +3,11 @@ require('dotenv').config();
 
 exports.verifyToken=(req,res,next)=>{
     const token=req.cookies?.token;
+    console.log(token);
     if(!token) return res.status(401).send('Access Denied');
 
     try{
-        jwt.verify(token, process.env.CLIENT_SECRET);
+        const verified =jwt.verify(token, process.env.CLIENT_SECRET);
         req.user=verified;
         next();
     }

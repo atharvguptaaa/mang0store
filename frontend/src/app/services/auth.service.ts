@@ -14,6 +14,7 @@ export class AuthService {
 
     //Redirects to the backend's login route 
     login(){
+      console.log("login");
       window.location.href=`${this.apiurl}/login`;
     }
 
