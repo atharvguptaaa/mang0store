@@ -3,7 +3,7 @@ import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports:[],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
