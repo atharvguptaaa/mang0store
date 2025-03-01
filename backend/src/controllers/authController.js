@@ -40,13 +40,15 @@ exports.callback=async (req,res)=>{
 
 //Clears user session.
 exports.logout=(req,res)=>{
+    
     res.clearCookie('token');
-    res.send('Logged Out');
+    res.json({ message: 'Logged Out' });
 }
 
 //Returns the authenticated user’s details.
 exports.profile=(req,res)=>{
 
-    console.log(req.cookies);
+   // console.log(req.cookies);
+    // console.log(req.user);
     res.json(req.user);
 }

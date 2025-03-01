@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,12 @@ export class AuthService {
 
     //Fetches the user profile if authenticated 
     getProfile():Observable<any>{
-      return this.http.get<any>(`${this.apiurl}/profile`,{withCredentials:true});
+         return this.http.get<any>(`${this.apiurl}/profile`,{withCredentials:true})
+      // return this.http.get<any>(`${this.apiurl}/profile`,{withCredentials:true}).pipe(
+      //   tap((user)=>{
+      //     this.setUser(user);
+      //   })
+      // )
     }
 
     // Logs out the user
