@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_c9eaa8d9c20323",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE todos (id serial PRIMARY KEY, title text NOT NULL, description text, user_id int REFERENCES users (id), done boolean DEFAULT false)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_c9eaa8d9c20323",
+  "parent": "sql_9655ec94afdcc4",
+  "schema": "public",
+  "startedAt": "2024-12-21T10:44:48.775877Z"
+}

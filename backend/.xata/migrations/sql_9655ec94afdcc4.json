@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_9655ec94afdcc4",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE users (id serial PRIMARY KEY, email varchar(255) UNIQUE NOT NULL, password varchar(255) NOT NULL)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_9655ec94afdcc4",
+  "parent": "mig_ctisu3h901h3pf6vihng",
+  "schema": "public",
+  "startedAt": "2024-12-21T10:44:47.937297Z"
+}
