@@ -1,0 +1,25 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv2216d2t0po8jv9sp10",
+    "operations": [
+      {
+        "alter_column": {
+          "up": "(SELECT CASE WHEN \"order_item_id\" IS NULL THEN 0 ELSE \"order_item_id\" END)",
+          "down": "(SELECT CASE WHEN \"order_item_id\" IS NULL THEN 0 ELSE \"order_item_id\" END)",
+          "table": "order_items",
+          "column": "order_item_id",
+          "unique": {
+            "name": "order_items_order_item_id_unique"
+          },
+          "nullable": false
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv2216d2t0po8jv9sp10",
+  "parent": "mig_cv22122tb4rhvnj374rg",
+  "schema": "public",
+  "startedAt": "2025-03-02T09:10:50.138835Z"
+}

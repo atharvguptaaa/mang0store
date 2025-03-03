@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv21n2itb4rhvnj374n0",
+    "operations": [
+      {
+        "add_column": {
+          "table": "users",
+          "column": {
+            "name": "address",
+            "type": "text",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv21n2itb4rhvnj374n0",
+  "parent": "mig_cv21mto66mqp0v06fv0g",
+  "schema": "public",
+  "startedAt": "2025-03-02T08:49:15.414622Z"
+}

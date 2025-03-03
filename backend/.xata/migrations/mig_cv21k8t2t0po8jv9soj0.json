@@ -1,0 +1,19 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv21k8t2t0po8jv9soj0",
+    "operations": [
+      {
+        "drop_column": {
+          "table": "products",
+          "column": "stock_quantity"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv21k8t2t0po8jv9soj0",
+  "parent": "mig_cv21jtd2t0po8jv9soi0",
+  "schema": "public",
+  "startedAt": "2025-03-02T08:43:16.709847Z"
+}

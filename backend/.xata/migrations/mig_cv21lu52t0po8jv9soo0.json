@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv21lu52t0po8jv9soo0",
+    "operations": [
+      {
+        "add_column": {
+          "table": "users",
+          "column": {
+            "name": "password_hash",
+            "type": "int",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv21lu52t0po8jv9soo0",
+  "parent": "mig_cv21ll52t0po8jv9son0",
+  "schema": "public",
+  "startedAt": "2025-03-02T08:46:49.669335Z"
+}

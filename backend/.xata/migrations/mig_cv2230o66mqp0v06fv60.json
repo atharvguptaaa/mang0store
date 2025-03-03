@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv2230o66mqp0v06fv60",
+    "operations": [
+      {
+        "add_column": {
+          "table": "order_items",
+          "column": {
+            "name": "quantity",
+            "type": "text",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv2230o66mqp0v06fv60",
+  "parent": "mig_cv222j066mqp0v06fv50",
+  "schema": "public",
+  "startedAt": "2025-03-02T09:14:44.246229Z"
+}

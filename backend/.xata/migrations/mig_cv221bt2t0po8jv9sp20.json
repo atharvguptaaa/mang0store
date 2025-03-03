@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv221bt2t0po8jv9sp20",
+    "operations": [
+      {
+        "add_column": {
+          "table": "order_items",
+          "column": {
+            "name": "order_id",
+            "type": "int",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv221bt2t0po8jv9sp20",
+  "parent": "mig_cv2216d2t0po8jv9sp10",
+  "schema": "public",
+  "startedAt": "2025-03-02T09:11:12.269201Z"
+}

@@ -1,0 +1,25 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv221k2tb4rhvnj374sg",
+    "operations": [
+      {
+        "add_column": {
+          "up": "0",
+          "table": "order_items",
+          "column": {
+            "name": "product_id",
+            "type": "int",
+            "unique": true,
+            "comment": ""
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv221k2tb4rhvnj374sg",
+  "parent": "mig_cv221bt2t0po8jv9sp20",
+  "schema": "public",
+  "startedAt": "2025-03-02T09:11:45.390487Z"
+}

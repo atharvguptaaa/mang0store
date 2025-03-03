@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv21jtd2t0po8jv9soi0",
+    "operations": [
+      {
+        "add_column": {
+          "table": "products",
+          "column": {
+            "name": "stock_quantity",
+            "type": "int",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv21jtd2t0po8jv9soi0",
+  "parent": "mig_cv21jlatb4rhvnj374kg",
+  "schema": "public",
+  "startedAt": "2025-03-02T08:42:30.447505Z"
+}

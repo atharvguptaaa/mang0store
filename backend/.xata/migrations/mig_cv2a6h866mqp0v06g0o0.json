@@ -1,0 +1,25 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv2a6h866mqp0v06g0o0",
+    "operations": [
+      {
+        "add_column": {
+          "up": "0",
+          "table": "order_items",
+          "column": {
+            "name": "product_id",
+            "type": "int",
+            "unique": true,
+            "comment": ""
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv2a6h866mqp0v06g0o0",
+  "parent": "mig_cv2a69866mqp0v06g0n0",
+  "schema": "public",
+  "startedAt": "2025-03-02T18:28:22.493921Z"
+}

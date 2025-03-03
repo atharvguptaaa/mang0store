@@ -27,7 +27,21 @@ exports.callback=async (req,res)=>{
             headers: { Authorization: `Bearer ${access_token}` }
         });
 
-        const userToken=generateToken(userInfo.data);
+        // 1. Check if user exists in Xata database by email
+        let user = await xata.db.users.filter({ email: userInfo.data.email }).getFirst();
+
+        // 2. If user doesn't exist, create a new user in Xata
+        if (!user) {
+        user = await xata.db.users.create({
+            email: userInfo.data.email,
+            // Add other user information from userInfo.data if needed (e.g., name, picture)
+        });
+        }
+
+        // 3. Generate JWT with Xata user ID and other user info
+        const userToken = generateToken({ id: user.xata_id, ...userInfo.data });
+
+ /*        const userToken=generateToken(userInfo.data); */
 
         res.cookie('token',userToken,{httpOnly:true});
 

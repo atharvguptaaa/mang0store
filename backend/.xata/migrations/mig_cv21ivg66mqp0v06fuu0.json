@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv21ivg66mqp0v06fuu0",
+    "operations": [
+      {
+        "add_column": {
+          "table": "products",
+          "column": {
+            "name": "description",
+            "type": "text",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv21ivg66mqp0v06fuu0",
+  "parent": "mig_cv21im066mqp0v06fut0",
+  "schema": "public",
+  "startedAt": "2025-03-02T08:40:30.833973Z"
+}

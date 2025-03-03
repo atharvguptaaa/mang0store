@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv224litb4rhvnj3752g",
+    "operations": [
+      {
+        "add_column": {
+          "table": "orders",
+          "column": {
+            "name": "shipping address",
+            "type": "text",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv224litb4rhvnj3752g",
+  "parent": "mig_cv224gqtb4rhvnj3751g",
+  "schema": "public",
+  "startedAt": "2025-03-02T09:18:15.327438Z"
+}

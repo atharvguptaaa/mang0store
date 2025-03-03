@@ -1,0 +1,25 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv21kv52t0po8jv9som0",
+    "operations": [
+      {
+        "add_column": {
+          "up": "0",
+          "table": "users",
+          "column": {
+            "name": "user_id",
+            "type": "int",
+            "unique": true,
+            "comment": ""
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv21kv52t0po8jv9som0",
+  "parent": "mig_cv21kll2t0po8jv9sol0",
+  "schema": "public",
+  "startedAt": "2025-03-02T08:44:45.299269Z"
+}

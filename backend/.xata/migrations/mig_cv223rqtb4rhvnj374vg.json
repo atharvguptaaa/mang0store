@@ -1,0 +1,25 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv223rqtb4rhvnj374vg",
+    "operations": [
+      {
+        "add_column": {
+          "up": "0",
+          "table": "orders",
+          "column": {
+            "name": "user_id",
+            "type": "int",
+            "unique": true,
+            "comment": ""
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv223rqtb4rhvnj374vg",
+  "parent": "mig_cv223k066mqp0v06fv70",
+  "schema": "public",
+  "startedAt": "2025-03-02T09:16:32.807235Z"
+}
