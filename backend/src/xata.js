@@ -68,7 +68,7 @@ const tables = [
       {
         name: "order_item_id",
         type: "int",
-        notNull: true,
+        notNull: false,
         unique: true,
         defaultValue: null,
         comment: "",
@@ -169,7 +169,7 @@ const tables = [
       {
         name: "order_id",
         type: "int",
-        notNull: true,
+        notNull: false,
         unique: true,
         defaultValue: null,
         comment: "",
@@ -306,7 +306,7 @@ const tables = [
       {
         name: "product_id",
         type: "int",
-        notNull: true,
+        notNull: false,
         unique: true,
         defaultValue: null,
         comment: "",
@@ -380,14 +380,6 @@ const tables = [
     },
     columns: [
       {
-        name: "address",
-        type: "text",
-        notNull: false,
-        unique: false,
-        defaultValue: null,
-        comment: "",
-      },
-      {
         name: "email",
         type: "text",
         notNull: false,
@@ -406,7 +398,7 @@ const tables = [
       {
         name: "user_id",
         type: "int",
-        notNull: true,
+        notNull: false,
         unique: true,
         defaultValue: null,
         comment: "",

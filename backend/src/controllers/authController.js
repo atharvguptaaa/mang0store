@@ -2,6 +2,9 @@ const axios=require('axios');
 const jwt=require('jsonwebtoken');
 require('dotenv').config();
 const {generateToken}=require('../utils/tokenUtils');
+const { getXataClient } = require('../xata.js'); // CommonJS import
+
+const xata = getXataClient();
 
 exports.login=(req,res)=>{
     const authUrl=`${process.env.AUTH_ENDPOINT}?response_type=code&client_id=${process.env.CLIENT_ID}&redirect_uri=${process.env.REDIRECT_URI}&scope=${process.env.SCOPES}&access_type=offline`;
@@ -27,27 +30,40 @@ exports.callback=async (req,res)=>{
             headers: { Authorization: `Bearer ${access_token}` }
         });
 
-        // 1. Check if user exists in Xata database by email
+         // 1. Check if user exists in Xata database by email
         let user = await xata.db.users.filter({ email: userInfo.data.email }).getFirst();
-
+        console.log(user);
         // 2. If user doesn't exist, create a new user in Xata
         if (!user) {
+
+            console.log('Creating user with:', {
+                user_id: Math.floor(Date.now() / 1000),
+                username: userInfo.data.given_name,
+         /*        password_hash: null, */
+                email: userInfo.data.email,
+              });
         user = await xata.db.users.create({
-            email: userInfo.data.email,
-            // Add other user information from userInfo.data if needed (e.g., name, picture)
+            user_id: Math.floor(Date.now() / 1000),
+            username: userInfo.data.given_name,
+            password_hash: null,
+            email: userInfo.data.email, 
         });
+        console.log("now "+user);
         }
 
         // 3. Generate JWT with Xata user ID and other user info
-        const userToken = generateToken({ id: user.xata_id, ...userInfo.data });
+        const userToken = generateToken({ id: user.xata_id, ...userInfo.data }); 
 
- /*        const userToken=generateToken(userInfo.data); */
 
+
+/*         const userToken=generateToken(userInfo.data);
+ */
         res.cookie('token',userToken,{httpOnly:true});
 
         res.redirect(process.env.FRONTEND_URL);
     }
     catch(err){
+        console.error('Error in OAuth callback:', err);
         res.status(500).send("Error during OAuth callback")
     }
 };
