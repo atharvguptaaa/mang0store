@@ -34,14 +34,6 @@ const tables = [
         name: "_pgroll_new_order_items_xata_id_key",
         columns: ["xata_id"],
       },
-      order_items__pgroll_new_order_id_key: {
-        name: "order_items__pgroll_new_order_id_key",
-        columns: ["order_id"],
-      },
-      order_items__pgroll_new_product_id_key: {
-        name: "order_items__pgroll_new_product_id_key",
-        columns: ["product_id"],
-      },
       order_items_order_item_id_unique: {
         name: "order_items_order_item_id_unique",
         columns: ["order_item_id"],
@@ -60,8 +52,8 @@ const tables = [
         name: "order_id",
         type: "link",
         link: { table: "orders" },
-        notNull: true,
-        unique: true,
+        notNull: false,
+        unique: false,
         defaultValue: null,
         comment: '{"xata.link":"orders"}',
       },
@@ -77,8 +69,8 @@ const tables = [
         name: "product_id",
         type: "link",
         link: { table: "products" },
-        notNull: true,
-        unique: true,
+        notNull: false,
+        unique: false,
         defaultValue: null,
         comment: '{"xata.link":"products"}',
       },
@@ -152,10 +144,6 @@ const tables = [
         name: "orders__pgroll_new_order_id_key",
         columns: ["order_id"],
       },
-      orders__pgroll_new_user_id_key: {
-        name: "orders__pgroll_new_user_id_key",
-        columns: ["user_id"],
-      },
     },
     columns: [
       {
@@ -202,8 +190,8 @@ const tables = [
         name: "user_id",
         type: "link",
         link: { table: "users" },
-        notNull: true,
-        unique: true,
+        notNull: false,
+        unique: false,
         defaultValue: null,
         comment: '{"xata.link":"users"}',
       },
