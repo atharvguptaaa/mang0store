@@ -4,6 +4,99 @@ import { buildClient } from "@xata.io/client";
 /** @type { SchemaTables } */
 const tables = [
   {
+    name: "cart",
+    checkConstraints: {
+      cart_xata_id_length_xata_id: {
+        name: "cart_xata_id_length_xata_id",
+        columns: ["xata_id"],
+        definition: "CHECK ((length(xata_id) < 256))",
+      },
+    },
+    foreignKeys: {
+      product_id_link: {
+        name: "product_id_link",
+        columns: ["product_id"],
+        referencedTable: "products",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
+      user_id_link: {
+        name: "user_id_link",
+        columns: ["user_id"],
+        referencedTable: "users",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
+    },
+    primaryKey: [],
+    uniqueConstraints: {
+      _pgroll_new_cart_xata_id_key: {
+        name: "_pgroll_new_cart_xata_id_key",
+        columns: ["xata_id"],
+      },
+    },
+    columns: [
+      {
+        name: "product_id",
+        type: "link",
+        link: { table: "products" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"products"}',
+      },
+      {
+        name: "quantity",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: "1",
+        comment: "",
+      },
+      {
+        name: "user_id",
+        type: "link",
+        link: { table: "users" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"users"}',
+      },
+      {
+        name: "xata_createdat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_id",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+        comment: "",
+      },
+      {
+        name: "xata_updatedat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_version",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: "0",
+        comment: "",
+      },
+    ],
+  },
+  {
     name: "order_items",
     checkConstraints: {
       order_items_xata_id_length_xata_id: {
