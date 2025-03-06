@@ -36,19 +36,14 @@ exports.callback=async (req,res)=>{
         // 2. If user doesn't exist, create a new user in Xata
         if (!user) {
 
-            console.log('Creating user with:', {
-                user_id: Math.floor(Date.now() / 1000),
-                username: userInfo.data.given_name,
-         /*        password_hash: null, */
-                email: userInfo.data.email,
-              });
+           
         user = await xata.db.users.create({
             user_id: Math.floor(Date.now() / 1000),
             username: userInfo.data.given_name,
             password_hash: null,
             email: userInfo.data.email, 
         });
-        console.log("now "+user);
+  
         }
 
         // 3. Generate JWT with Xata user ID and other user info
