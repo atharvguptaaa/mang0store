@@ -1,8 +1,9 @@
+const {AddProductToCart,RemoveProductFromCart,GetCart,UpdateCartItemQuantity}=require('../services/cartService')
 
 async function getCart(req,res){
     try{
         const userId=req.user.id;
-        const cart=await getCart(userId);
+        const cart=await GetCart(userId);
         res.json(cart)
     }
     catch(err){
@@ -15,7 +16,7 @@ async function addProductToCart(req,res){
     try{
         const userId=req.user.id;
         const {productId,quantity}=req.body;
-        await addProductToCart(userId,productId,quantity);
+        await AddProductToCart(userId,productId,quantity);
         res.json({message:'Product added to cart'});
     }
     catch(err){
@@ -24,10 +25,10 @@ async function addProductToCart(req,res){
         }
 }
 
-async function RemoveProductFromCart(req,res){
+async function removeProductFromCart(req,res){
     try{
         const userId=req.user.id;
-        const {productId}=req.params.productId;
+        const productId=req.params.productId;
         await RemoveProductFromCart(userId,productId);
         res.json({message:'Product removed from cart'});
     }
@@ -38,5 +39,22 @@ async function RemoveProductFromCart(req,res){
 }
 
 async function updateCartItemQuantity(req,res){
-    
+    try{
+        const userId=req.user.id;
+        const productId=req.params.productId;
+        const {quantity}=req.body;
+        await UpdateCartItemQuantity(userId,productId,quantity);
+        res.json({message:'Cart item quantity updated'});
+    }
+    catch(err){
+        console.error("Error updating cart item quantity",err);
+        res.status(500).json({error:'failed to update cart item quantity'})
+        }
+}
+
+module.exports={
+    addProductToCart,
+    removeProductFromCart,
+    getCart,
+    updateCartItemQuantity,
 }
