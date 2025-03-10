@@ -7,8 +7,9 @@ import { Product } from '../../models/product-model';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent {
-  @Input() product!: Product;
+  @Input() product!:Product;
   @Output() addToCart = new EventEmitter<Product>();
+
 
   onAddToCart() {
     this.addToCart.emit(this.product);
