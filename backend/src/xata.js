@@ -454,10 +454,6 @@ const tables = [
         name: "users__pgroll_new_user_id_key",
         columns: ["user_id"],
       },
-      users__pgroll_new_username_key: {
-        name: "users__pgroll_new_username_key",
-        columns: ["username"],
-      },
     },
     columns: [
       {
@@ -488,7 +484,7 @@ const tables = [
         name: "username",
         type: "text",
         notNull: false,
-        unique: true,
+        unique: false,
         defaultValue: null,
         comment: "",
       },
