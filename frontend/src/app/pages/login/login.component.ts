@@ -12,8 +12,6 @@ export class LoginComponent {
   constructor(private authService: AuthService) {}
 
   login() {
-    alert("button");
-    
     this.authService.login(); // Redirect to backend for OAuth
   }
 }
